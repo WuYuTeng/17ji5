@@ -1,0 +1,49 @@
+//增加语句 
+mysql> insert into student(id,name,num) values(1,"梁颖",20170404530123);
+Query OK, 1 row affected
+
+//删除语句（如果不加where 条件删除，将会导致全部的信息都被删除）
+mysql> delete from student where num=20170404530666;
+Query OK, 1 row affected
+
+//更新数据语句(使用where来知道更新的是哪一列)
+mysql> update student set name="梁健" where id=1;
+Query OK, 1 row affected
+Rows matched: 1  Changed: 1  Warnings: 0
+
+//普通查询语句
+mysql> select name from student;
++--------+
+| name   |
++--------+
+| 梁健   |
+| PDD    |
+| 骚男   |
+| 五五开 |
++--------+
+4 rows in set
+
+mysql> select * from student;
++----+--------+----------------+
+| id | name   | num            |
++----+--------+----------------+
+|  1 | 梁健   | 20170404530123 |
+|  2 | PDD    |         110120 |
+|  3 | 骚男   |         666666 |
+|  4 | 五五开 |         555555 |
++----+--------+----------------+
+4 rows in set
+
+mysql> select * from student where name=PDD;
+1054 - Unknown column 'PDD' in 'where clause'
+
+//条件查询语句
+mysql> select * from student where name="PDD";
++----+------+--------+
+| id | name | num    |
++----+------+--------+
+|  2 | PDD  | 110120 |
++----+------+--------+
+1 row in set
+
+mysql> 
